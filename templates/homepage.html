@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Game Manager</title>
+</head>
+<body>
+<header>
+<h1>Welcome user: {{name}}!
+</h1>
+</header>
+<h1 id="twitch-embed">Recommended stream because you like {{genre}}:</h1>
+<script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+{% for x in stream %}
+<script type="text/javascript">
+    new Twitch.Embed("twitch-embed", {
+      width: 854,
+      height: 480,
+      channel: "{{x}}"
+      // Only needed if this page is going to be embedded on other websites
+    });
+</script>
+{% endfor %}  
+
+<h1 id="twitch-embed">Recommended stream because you played recently:</h1>
+<script src="https://embed.twitch.tv/embed/v1.js"></script>
+{% for y in stream2 %}
+<script type="text/javascript">
+    new Twitch.Embed("twitch-embed", {
+      width: 854,
+      height: 480,
+      channel: "{{y}}"
+      // Only needed if this page is going to be embedded on other websites
+    });
+</script>
+{% endfor %}
+
+<section>
+<div>News update for the games you are interested:</div>
+{% for x in length %}
+<a href="{{news[x+1]}}">{{news[x]}}</a>
+<br>
+{% endfor %}
+</section>
+<button><a href="{{ url_for('main_handler') }}">Go back</a></button>
+</body>
+</html>

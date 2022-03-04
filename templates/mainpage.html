@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Game Manager</title>
+</head>
+<body>
+<header>
+<h1>Please enter valid steam ID and set your profile to public
+</h1>
+</header>
+<form action="homepage" method="get">
+<label for="username">Please enter a your Steam ID:</label>
+<input type="text" id="username" name="username" /><br />
+<input type="submit" value="Go" name="gobtn"/></form>
+{% if prompt %}
+<div class= 'formtitle'>{{prompt}}</div>
+{% endif %}
+</body>
+</html>
